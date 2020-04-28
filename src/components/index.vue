@@ -6,3 +6,6 @@ export default {
     name: "index" 
 }
 </script>
+<style scoped>
+    a{color:#000;}
+</style>

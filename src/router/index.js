@@ -8,7 +8,7 @@ export default new Router({
   mode: 'hash',
   routes: 
   [
-      { path: '/component', component: () => import(/* webpackChunkName:'foo'*/ './../components/component.vue') },
+      { path: '/component', component: () => import(/* webpackChunkName:'component'*/ './../components/component.vue') },
       {
           path: '/',
           name: 'index',
