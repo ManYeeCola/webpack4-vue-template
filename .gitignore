@@ -1,0 +1,9 @@
+#folder
+
+node_modules
+.history
+dist
+
+#file
+
+package-lock.json
