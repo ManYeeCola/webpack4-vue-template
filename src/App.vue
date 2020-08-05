@@ -12,6 +12,6 @@
   }
 </script>
 <style>
-@import "./style/common.css"
+@import "./common/style/common.css"
 
 </style>

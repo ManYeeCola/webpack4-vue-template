@@ -9,8 +9,8 @@ module.exports = {
     entry: "./main.js",
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "js/[name].[chunkhash].min.js",
-        //chunkFilename: 'js/[id].[chunkhash].js',
+        filename: "js/[name].[chunkhash].js",
+        chunkFilename: 'js/[id].[chunkhash].js'
     },
     resolve: {
         extensions: ['.js', '.vue', '.json'],
@@ -21,9 +21,6 @@ module.exports = {
     devServer: {
         contentBase: "./dist",
         hot: true,
-        port: 8080,
-        //显示打包编译进度
-        progress: true,
         compress: true,
     },
     module: {
@@ -49,6 +46,6 @@ module.exports = {
             minify: false
         }),
         new VueLoaderPlugin(),
-        new MiniCssExtractPlugin({　　 filename: "./style/[name].[chunkhash].min.css"　　 })
+        new MiniCssExtractPlugin({　　 filename: "./style/[name].[chunkhash].css"　　 })
     ]
 }
