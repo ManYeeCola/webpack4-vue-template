@@ -1,16 +1,16 @@
 const path = require("path")
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const VueLoaderPlugin = require("vue-loader/lib/plugin");
+const webpack = require('webpack');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 
 module.exports = {
     devtool: "none", //source-map // none
-    entry: "./main.js",
+    entry: "./src/main.js",
     output: {
         path: path.resolve(__dirname, "dist"),
-        filename: "js/[name].[chunkhash].js",
-        chunkFilename: 'js/[id].[chunkhash].js'
+        filename: 'js/[name].[hash].' + process.env.NODE_ENV + '.js',
     },
     resolve: {
         extensions: ['.js', '.vue', '.json'],
@@ -21,6 +21,9 @@ module.exports = {
     devServer: {
         contentBase: "./dist",
         hot: true,
+        port: 8080,
+        //显示打包编译进度
+        progress: true,
         compress: true,
     },
     module: {
@@ -42,10 +45,11 @@ module.exports = {
         new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             title: "home",
-            template: "./index.html",
+            template: "./src/views/home/index.html",
             minify: false
         }),
         new VueLoaderPlugin(),
-        new MiniCssExtractPlugin({　　 filename: "./style/[name].[chunkhash].css"　　 })
+        new webpack.HotModuleReplacementPlugin(),
+        new MiniCssExtractPlugin({　　 filename: "./style/[name].[hash]." + process.env.NODE_ENV + ".min.css"　　 })
     ]
 }

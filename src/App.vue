@@ -1,7 +1,7 @@
 <template>
     <div>
         <span>头部</span>
-        <router-link to="/component">跳转链接component</router-link>
+        <router-link to="/component" class='a'>跳转链接component</router-link>
         <router-view></router-view>
         <footer>底部</footer>
     </div>

@@ -7,8 +7,8 @@
     "author": "manyee",
     "license": "ISC",
     "scripts": {
-        "dev": "webpack-dev-server --mode development --open --host",
-        "build": "webpack --mode production"
+        "dev": "set NODE_ENV=development&& webpack-dev-server --mode development --open --host --config config/webpack.config.js",
+        "build": "set NODE_ENV=production&& webpack --mode production --config config/webpack.config.js"
     },
     "dependencies": {
         "@antv/data-set": "^0.10.2",
